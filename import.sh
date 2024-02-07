@@ -1,1 +1,5 @@
-ddev import-db --file=~/nightly/db.sql.gz;ddev composer require drush/drush;ddev drush cr;ddev launch user;ddev drush user:password drupaladmin '111'
+ddev composer update
+ddev import-db --file=aplcms-minus.sql.gz
+ddev drush cr
+ddev drush user:password drupaladmin '111'
+ddev launch user
