@@ -1,4 +1,4 @@
-name: prod8
+name: aplcms-minus
 type: drupal9
 docroot: html
 php_version: "8.1"
@@ -12,7 +12,7 @@ database:
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
-mailhog_disabled: true
+
 # Key features of DDEV's config.yaml:
 
 # name: <projectname> # Name of the project, automatically provides
