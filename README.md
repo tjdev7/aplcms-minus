@@ -19,33 +19,33 @@ Follow these steps to clone the repository and start your project with DDEV:
 
 ### 1. Clone the Repository
 
-\```bash
+```bash
 git clone git@github.com:APL-Innovation-Lab/aplcms-minus.git
-\```
+```
 
 ### 2. Enter the Project Directory
 
 Navigate to the project directory:
 
-\```bash
+```bash
 cd aplcms-minus
-\```
+```
 
 ### 3. Start DDEV
 
 Initialize the DDEV environment:
 
-\```bash
+```bash
 ddev start
-\```
+```
 
 ### 4. Import Project Dependencies and Database
 
 Run the import script to update dependencies and install a recent backup of the production database:
 
-\```bash
+```bash
 time bash import.sh
-\```
+```
 
 **Note:** The `import.sh` script updates the dependencies listed in `composer.json` and then installs the recent backup from `aplcms-minus.sql.gz`. The import process may take a few minutes and performs better on machines with a minimum of 8GB memory.
 
