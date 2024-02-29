@@ -27,7 +27,7 @@ parameters:
     # Specify allowed request methods, specify ['*'] to allow all possible ones.
     allowedMethods: ['*']
     # Configure requests allowed from specific origins.
-    allowedOrigins: ['http://localhost:3000', 'https://library.austintexas.gov']
+    allowedOrigins: ['http://localhost:3000', 'https://dev-site.pantheon.io']
     # Sets the Access-Control-Expose-Headers header.
     exposedHeaders: false
     # Sets the Access-Control-Max-Age header.
@@ -36,11 +36,11 @@ parameters:
     supportsCredentials: false
 ```
 
-Note: Yesterday, the config wrongly had “true” for the `exposedHeaders` parameter, but it needs to be either `false` or an array of values, and not a wildcard.
+Note: Previously, the config had "true" for the `exposedHeaders` parameter, but it needs to be either `false` or an array of values, and not a wildcard.
 
 ### Creating a Test Page
 
-To verify CORS functionality, create a simple HTML page that makes a request to your Drupal site.
+To verify CORS functionality, create a simple HTML page that makes a request to your Drupal site on Pantheon.
 
 1. **Create HTML File**: Create a new file named `test-cors.html`.
 2. **Add JavaScript**: Inside the HTML file, add JavaScript to make an AJAX request to a resource on your Drupal site.
@@ -55,7 +55,7 @@ Example:
 </head>
 <body>
     <script>
-        fetch('https://yourdrupalsite.com/api/resource', {
+        fetch('https://dev-site.pantheon.io/api/resource', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ Example:
 </html>
 ```
 
-Replace `https://yourdrupalsite.com/api/resource` with the actual URL of the resource you want to test.
+Replace `https://dev-site.pantheon.io/api/resource` with the actual URL of the resource you want to test.
 
 ### Inspecting Headers Using Firefox Developer Tools
 
