@@ -1,0 +1,42 @@
+# General
+.editorconfig
+composer.lock
+vendor/
+
+# Drupal-specific ignores
+html/.csslintrc
+html/.eslintignore
+html/.eslintrc.json
+html/.ht.router.php
+html/.htaccess
+html/INSTALL.txt
+html/README.md
+html/autoload.php
+html/core/
+html/example.gitignore
+html/index.php
+html/modules/
+html/profiles/
+html/robots.txt
+html/sites/README.txt
+html/sites/default/default.services.yml
+html/sites/default/default.settings.php
+html/sites/default/files/
+html/sites/default/settings.php
+html/sites/development.services.yml
+html/sites/example.settings.local.php
+html/sites/example.sites.php
+html/update.php
+html/web.config
+
+# Specific directories in sites/default/files
+html/sites/default/files/asset_injector/
+html/sites/default/files/css/
+html/sites/default/files/js/
+html/sites/default/files/php/
+html/sites/default/files/styles/
+html/sites/default/files/sync/
+
+# Ignore sensitive files
+*.key
+*.cert
