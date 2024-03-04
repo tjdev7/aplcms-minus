@@ -11,3 +11,8 @@ global-styling:
     theme:
       css/styles.css: {}
 
+aplpa2024:
+  version: 1.x
+  css:
+    theme:
+      css/aplpa2024.css: {}

@@ -7,8 +7,11 @@ def create_local_path(url, local_base_path, base_url):
     # Adjust the URL to be relative if it's not already
     if url.startswith(('http://', 'https://')):
         url = url.split(base_url)[-1]
+    # Remove query parameters from the URL
+    url = url.split('?')[0]
     local_path = os.path.join(local_base_path, url.lstrip('/'))
     return local_path
+
 
 def url_exists_locally(url, local_base_path, base_url):
     local_path = create_local_path(url, local_base_path, base_url)
