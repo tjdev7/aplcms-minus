@@ -1,0 +1,11 @@
+--- html/modules/contrib/facets/src/Plugin/facets/widget/LinksWidget.php	2024-03-06 10:22:00
++++ html/modules/contrib/facets/src/Plugin/facets/widget/LinksWidget.php	2024-03-06 10:06:24
+@@ -132,7 +132,7 @@
+   public function buildConfigurationForm(array $form, FormStateInterface $form_state, FacetInterface $facet) {
+     $form = parent::buildConfigurationForm($form, $form_state, $facet);
+ 
+-    $options = [50, 40, 30, 20, 15, 10, 5, 3];
++    $options = [50, 40, 30, 20, 15, 14, 10, 5, 3];
+     $form['soft_limit'] = [
+       '#type' => 'select',
+       '#title' => $this->t('Soft limit'),
