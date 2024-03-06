@@ -1,63 +1,80 @@
+
 # APLCMS-Minus Project Setup
 
-Welcome to the APLCMS-Minus project! This guide will walk you through setting up your development environment, cloning the repository, and starting the project with DDEV. If you're new to any of these tools or encounter any bumps along the way, don't hesitate to reach out. We're here to make your setup process as smooth as possible.
+Welcome to the APLCMS-Minus project! This guide will walk you through setting up your development environment, cloning the repository, and starting the project with DDEV, including the option of using GitHub Codespaces. If you're new to any of these tools or encounter any bumps along the way, don't hesitate to reach out. We're here to make your setup process as smooth as possible.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following prerequisites installed on your machine:
+Before you begin, ensure you have the following prerequisites installed on your machine or accessible in your development environment:
 
-- **Colima or Docker**: These tools allow you to containerize applications, ensuring consistency across development and production environments.
-    - Colima installation guide: [Colima GitHub](https://github.com/abiosoft/colima)
-    - Docker installation guide: [Docker Get Started](https://www.docker.com/get-started)
+- **GitHub Codespaces or Local Development Tools**:
+    - For GitHub Codespaces, ensure you have a GitHub account with Codespaces enabled.
+    - For local development, you will need Docker or Colima to containerize applications, ensuring consistency across environments.
+        - Colima installation guide: [Colima GitHub](https://github.com/abiosoft/colima)
+        - Docker installation guide: [Docker Get Started](https://www.docker.com/get-started)
 
 - **DDEV**: An open-source tool that simplifies the setup and management of PHP applications with Docker.
     - DDEV installation guide: [DDEV Documentation](https://ddev.readthedocs.io/en/stable/)
 
 ## Getting Started
 
-Follow these steps to clone the repository and start your project with DDEV:
+You have the option to set up your environment locally using DDEV or using GitHub Codespaces for a cloud-based development environment.
 
-### 1. Clone the Repository
+### Option 1: Local Setup with DDEV
 
-```bash
-git clone git@github.com:APL-Innovation-Lab/aplcms-minus.git
-```
+Follow these steps to clone the repository and start your project with DDEV locally:
 
-### 2. Enter the Project Directory
+1. **Clone the Repository**
 
-Navigate to the project directory:
+    ```bash
+    git clone git@github.com:APL-Innovation-Lab/aplcms-minus.git
+    ```
 
-```bash
-cd aplcms-minus
-```
+2. **Enter the Project Directory**
 
-### 3. Start DDEV
+    Navigate to the project directory:
 
-Initialize the DDEV environment:
+    ```bash
+    cd aplcms-minus
+    ```
 
-```bash
-ddev start
-```
+3. **Start DDEV**
 
-### 4. Import Project Dependencies and Database
+    Initialize the DDEV environment:
 
-Run the import script to update dependencies and install a recent backup of the production database:
+    ```bash
+    ddev start
+    ```
 
-```bash
-time bash import.sh
-```
+### Option 2: GitHub Codespaces Setup
 
-**Note:** The `import.sh` script updates the dependencies listed in `composer.json` and then installs the recent backup from `aplcms-minus.sql.gz`. The import process may take a few minutes and performs better on machines with a minimum of 8GB memory.
+1. **Open the Repository in GitHub Codespaces**
 
-The installed backup is a recent snapshot from our production website at [library.austintexas.gov](https://library.austintexas.gov), with all personally identifiable information, such as email addresses, removed for privacy.
+    Navigate to the GitHub repository and use the Codespaces tab to create a new codespace.
+
+2. **Codespaces will automatically prepare your development environment.**
+
+### Import Project Dependencies and Database
+
+Regardless of the chosen method, you should import project dependencies and the database:
+
+- **Run the import script to update dependencies and install a recent backup of the production database:**
+
+    ```bash
+    time bash import.sh
+    ```
+
+    **Note:** The `import.sh` script updates dependencies and installs a recent backup from `aplcms-minus.sql.gz`. This process may take up to 20 minutes due to the size of the database but is necessary only occasionally to refresh your environment with the latest data.
+
+The installed backup is a recent snapshot from our production website at [library.austintexas.gov](https://library.austintexas.gov), with all personally identifiable information removed for privacy.
 
 ## Missing Images Handler
 
-If you encounter missing images during development, we've prepared a script to help you identify and download these images from the production site. This ensures your local environment mirrors the live site as closely as possible.
+If you encounter missing images during development, we've prepared a script to help you identify and download these images from the production site, ensuring your environment mirrors the live site as closely as possible.
 
 ### Script Usage
 
-- Ensure you have `wget` installed on your system to download missing images.
+- Ensure you have `wget` installed on your system for downloading missing images.
 - Run the provided script to identify missing images and download them while preserving the directory structure. 
 
 **We're here to help!** If you need assistance setting up your development environment or have questions about the project, don't hesitate to reach out. Our goal is to ensure a welcoming and supportive environment for all contributors.
