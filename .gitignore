@@ -3,6 +3,12 @@
 composer.lock
 vendor/
 
+html/library/.htaccess
+html/library/asset_injector/
+html/library/css/
+html/library/js/
+html/library/php/
+
 # Drupal-specific ignores
 html/.csslintrc
 html/.eslintignore
