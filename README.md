@@ -16,6 +16,9 @@ Before you begin, ensure you have the following prerequisites installed on your 
 - **DDEV**: An open-source tool that simplifies the setup and management of PHP applications with Docker.
     - DDEV installation guide: [DDEV Documentation](https://ddev.readthedocs.io/en/stable/)
 
+- **Git LFS**: To handle large files such as `aplcms-minus.sql.gz` which is managed with Git Large File Storage.
+    - Git LFS installation guide: [Git LFS Documentation](https://git-lfs.github.com/)
+
 ## Getting Started
 
 You have the option to set up your environment locally using DDEV or using GitHub Codespaces for a cloud-based development environment.
@@ -38,7 +41,23 @@ Follow these steps to clone the repository and start your project with DDEV loca
     cd aplcms-minus
     ```
 
-3. **Start DDEV**
+3. **Ensure Git LFS is Initialized**
+
+    Before pulling the large files, ensure Git LFS is initialized:
+
+    ```bash
+    git lfs install
+    ```
+
+4. **Pull LFS Files**
+
+    Make sure all LFS-tracked files are correctly downloaded:
+
+    ```bash
+    git lfs pull
+    ```
+
+5. **Start DDEV**
 
     Initialize the DDEV environment:
 
@@ -52,7 +71,7 @@ Follow these steps to clone the repository and start your project with DDEV loca
 
     Navigate to the GitHub repository and use the Codespaces tab to create a new codespace.
 
-2. **Codespaces will automatically prepare your development environment.**
+2. **Codespaces will automatically prepare your development environment, including Git LFS setup.**
 
 ### Import Project Dependencies and Database
 
