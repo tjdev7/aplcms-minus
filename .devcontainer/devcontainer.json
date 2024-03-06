@@ -1,0 +1,24 @@
+{
+    "name": "DDEV Drupal 9 Environment",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+      "ms-azuretools.vscode-docker",
+      "dracula-theme.theme-dracula",
+      "bmewburn.vscode-intelephense-client",
+      "felixfbecker.php-debug"
+    ],
+    "postCreateCommand": "ddev start",
+    "forwardPorts": [
+      80,
+      443,
+      8025,
+      8036
+    ],
+    "remoteUser": "ddev"
+  }
+  
