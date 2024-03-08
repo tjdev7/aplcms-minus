@@ -19,7 +19,7 @@
 #echo "LDAP module disabled."
 
 # Sanitize the database
-ddev drush sql-sanitize
+ddev drush sql-sanitize -y
 echo "Database sanitized"
 
 # Clear Drupal's cache and give feedback

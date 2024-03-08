@@ -4,14 +4,11 @@ import os
 import sys
 
 def create_local_path(url, local_base_path, base_url):
-    # Adjust the URL to be relative if it's not already
     if url.startswith(('http://', 'https://')):
         url = url.split(base_url)[-1]
-    # Remove query parameters from the URL
     url = url.split('?')[0]
     local_path = os.path.join(local_base_path, url.lstrip('/'))
     return local_path
-
 
 def url_exists_locally(url, local_base_path, base_url):
     local_path = create_local_path(url, local_base_path, base_url)
@@ -19,10 +16,7 @@ def url_exists_locally(url, local_base_path, base_url):
 
 def fetch_html_content(url):
     response = requests.get(url)
-    if response.status_code == 200:
-        return response.text
-    else:
-        return None
+    return response.text if response.status_code == 200 else None
 
 def extract_image_urls(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
@@ -31,21 +25,23 @@ def extract_image_urls(html_content):
     return image_urls
 
 def download_image(image_url, local_base_path, base_url, remote_base_url):
-    # Use the remote base URL for downloading the image
-    full_image_url = remote_base_url + image_url if not image_url.startswith(('http://', 'https://')) else image_url
-    local_path = create_local_path(image_url, local_base_path, base_url)
-    os.makedirs(os.path.dirname(local_path), exist_ok=True)
-    response = requests.get(full_image_url)
-    if response.status_code == 200:
-        with open(local_path, 'wb') as file:
-            file.write(response.content)
-        print(f"Downloaded to {local_path}")
+    attempt_paths = [image_url, image_url.replace('/sites/default/files', '/library')]
+    for path in attempt_paths:
+        full_image_url = remote_base_url + path if not path.startswith(('http://', 'https://')) else path
+        local_path = create_local_path(image_url, local_base_path, base_url)  # Always save to the original intended path
+        os.makedirs(os.path.dirname(local_path), exist_ok=True)
+        response = requests.get(full_image_url)
+        if response.status_code == 200:
+            with open(local_path, 'wb') as file:
+                file.write(response.content)
+            print(f"Downloaded to {local_path}")
+            break
     else:
-        print(f"Failed to download {full_image_url}")
+        print(f"Failed to download from all attempted paths for {image_url}")
 
 def main():
-    local_base_url = 'http://aplcms-minus.ddev.site'  # Default local base URL
-    remote_base_url = 'https://library.austintexas.gov'  # Remote (production) base URL
+    local_base_url = 'http://aplcms-minus.ddev.site'
+    remote_base_url = 'https://library.austintexas.gov'
     html_directory = './html'
     
     start_url_path = sys.argv[1] if len(sys.argv) > 1 else ''

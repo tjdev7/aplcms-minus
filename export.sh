@@ -1,0 +1,1 @@
+ddev export-db --file=aplcms-minus.sql.gz
