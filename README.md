@@ -70,10 +70,6 @@ GitHub Codespaces provides a powerful, customizable, and scalable cloud-based de
 
 1. **Accessing a Codespace**
 
-    GitHub Codespaces provides a flexible and powerful development environment, allowing you to choose between accessing a pre-configured environment or setting up a new one. Here are your options:
-
-1. **Accessing a Codespace**
-
     GitHub Codespaces offers a seamless and flexible development experience, allowing you to choose between jumping into a pre-configured environment or starting fresh with a new setup. Below are your options, along with the added flexibility of using VS Code or a browser:
 
     - **Access a Pre-configured Environment**: Navigate to the GitHub repository and use the Codespaces tab to select an environment that already has the development environment configured and the database imported. Look for environments like "urban goldfish" or other similarly named temporary environments. These environments are ready to use, and you can immediately check the status in the Terminal with `ddev status` or launch the project using `ddev launch`. For an enhanced development experience, it's recommended to open the Codespace with VS Code. However, you also have the convenience of working directly in a browser, offering quick access without the need for local installations.
