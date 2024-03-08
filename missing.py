@@ -28,7 +28,7 @@ def download_image(image_url, local_base_path, base_url, remote_base_url):
     attempt_paths = [image_url, image_url.replace('/sites/default/files', '/library')]
     for path in attempt_paths:
         full_image_url = remote_base_url + path if not path.startswith(('http://', 'https://')) else path
-        local_path = create_local_path(image_url, local_base_path, base_url)  # Always save to the original intended path
+        local_path = create_local_path(image_url, local_base_path, base_url)
         os.makedirs(os.path.dirname(local_path), exist_ok=True)
         response = requests.get(full_image_url)
         if response.status_code == 200:
@@ -40,7 +40,8 @@ def download_image(image_url, local_base_path, base_url, remote_base_url):
         print(f"Failed to download from all attempted paths for {image_url}")
 
 def main():
-    local_base_url = 'http://aplcms-minus.ddev.site'
+    # Use the fixed local development URL directly
+    local_base_url = 'http://127.0.0.1:8080'
     remote_base_url = 'https://library.austintexas.gov'
     html_directory = './html'
     

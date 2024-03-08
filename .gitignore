@@ -43,6 +43,7 @@ html/sites/default/files/php/
 html/sites/default/files/styles/
 html/sites/default/files/sync/
 
+html/themes/contrib/material_base/
 # Ignore sensitive files
 *.key
 *.cert
