@@ -36,7 +36,7 @@ GitHub Codespaces offers a powerful, cloud-based environment. You can start with
 
 ### Import Project Dependencies and Database
 
-Regardless of your setup choice, run `bash import.sh` to import project dependencies and the database, ensuring your environment is up to date.
+If you are setting up a new Codespace or installing the environment locally, run `bash import.sh` to import project dependencies and the database, ensuring your environment is up to date. If you are using a pre-configured environment, you can skip the import step. It takes about 20 minutes to import the database from aplcms-minus.sql.gz, but that's only needed occasionally, to sync up with our Production database (minus the emails and things like that).
 
 ## Missing Images Handler
 
