@@ -1,4 +1,3 @@
-
 # APLCMS-Minus Project Setup
 
 Welcome to the APLCMS-Minus project! This guide will help you set up your development environment, clone the repository, and start the project with DDEV, including the option of using GitHub Codespaces. We're here to assist you through the process.
@@ -28,20 +27,22 @@ Ensure you have the following installed or accessible:
 
 ### Option 2: GitHub Codespaces Setup
 
-GitHub Codespaces offers a powerful, cloud-based environment. You can start with a pre-configured environment or set up a new Codespace:
+GitHub Codespaces provides a powerful, cloud-based development environment. For the APLCMS-Minus project, start with setting up a new Codespace:
 
-- **Pre-configured Environment**: Select a pre-configured environment like "urban goldfish" from the Codespaces tab. These are ready for use, and you can check the status or launch the project using `ddev` commands. Open in VS Code for an enhanced experience or directly in a browser.
-
-- **New Codespace Setup**: Create a new Codespace and run `time bash import.sh` in the Terminal to set up your environment and import the database, taking about 20-25 minutes. Manage your project with `ddev` commands. Opt to open in VS Code or a browser for convenience.
+- **New Codespace Setup**: Create a new Codespace from the Codespaces tab in the GitHub repository. The first step is to run `time bash import.sh` in the Terminal, which sets up your environment and imports the database, taking about 20-25 minutes. Afterwards, you can manage your project with `ddev` commands. For an enhanced development experience, it's recommended to open the Codespace in VS Code, but you can also work directly in a browser for convenience.
 
 ### Import Project Dependencies and Database
 
-If you are setting up a new Codespace or installing the environment locally, run `bash import.sh` to import project dependencies and the database, ensuring your environment is up to date. If you are using a pre-configured environment, you can skip the import step. It takes about 20 minutes to import the database from aplcms-minus.sql.gz, but that's only needed occasionally, to sync up with our Production database (minus the emails and things like that).
+Regardless of your setup choice, run `bash import.sh` to import project dependencies and the database, ensuring your environment is up to date.
 
 ## Missing Images Handler
 
-To address missing images during development, run the provided script to identify and download them, preserving the directory structure.
+If you encounter missing images during development, run the provided script to identify and download them, preserving the directory structure.
 
-**Need Help?** Reach out for assistance with your development environment or any project-related questions. We aim to create a supportive environment for all contributors.
+```python3
+python3 missing.py
+```
+
+**Need Help?** If you need assistance with your development environment or have questions about the project, don't hesitate to reach out. Our aim is to create a supportive environment for all contributors.
 
 Thank you for contributing to the APLCMS-Minus project!
