@@ -1,4 +1,3 @@
-
 # APLCMS-Minus Project Setup
 
 Welcome to the APLCMS-Minus project! This guide will walk you through setting up your development environment, cloning the repository, and starting the project with DDEV, including the option of using GitHub Codespaces. If you're new to any of these tools or encounter any bumps along the way, don't hesitate to reach out. We're here to make your setup process as smooth as possible.
@@ -67,11 +66,49 @@ Follow these steps to clone the repository and start your project with DDEV loca
 
 ### Option 2: GitHub Codespaces Setup
 
-1. **Open the Repository in GitHub Codespaces**
+GitHub Codespaces provides a powerful, customizable, and scalable cloud-based development environment. Here's how to access and use a Codespace for the APLCMS-Minus project:
 
-    Navigate to the GitHub repository and use the Codespaces tab to create a new codespace.
+1. **Accessing a Codespace**
 
-2. **Codespaces will automatically prepare your development environment, including Git LFS setup.**
+    GitHub Codespaces provides a flexible and powerful development environment, allowing you to choose between accessing a pre-configured environment or setting up a new one. Here are your options:
+
+1. **Accessing a Codespace**
+
+    GitHub Codespaces offers a seamless and flexible development experience, allowing you to choose between jumping into a pre-configured environment or starting fresh with a new setup. Below are your options, along with the added flexibility of using VS Code or a browser:
+
+    - **Access a Pre-configured Environment**: Navigate to the GitHub repository and use the Codespaces tab to select an environment that already has the development environment configured and the database imported. Look for environments like "urban goldfish" or other similarly named temporary environments. These environments are ready to use, and you can immediately check the status in the Terminal with `ddev status` or launch the project using `ddev launch`. For an enhanced development experience, it's recommended to open the Codespace with VS Code. However, you also have the convenience of working directly in a browser, offering quick access without the need for local installations.
+
+    - **Set Up a New Codespace**: If you choose to set up a new Codespace, create one from the Codespaces tab in the GitHub repository. The first step for a new Codespace is to run the `import.sh` script, which takes about 20-25 minutes to complete. This script will set up your environment and import the database. To begin, open the Terminal within the IDE and execute:
+
+        ```bash
+        time bash import.sh
+        ```
+
+    After the import process completes, you can manage the project using DDEV commands such as `ddev status` to check the environment status or `ddev launch` to start the project. Similar to accessing a pre-configured environment, you can choose to open the new Codespace in VS Code for a comprehensive development experience or directly in a browser for convenience.
+
+
+    - **Set Up a New Codespace**: If you prefer to set up a new Codespace, create one from the Codespaces tab in the GitHub repository. The first step in a new Codespace is to run the `import.sh` script. This script takes about 20-25 minutes to complete and will set up your environment and import the database. To start, open the Terminal within the IDE and execute:
+
+        ```bash
+        time bash import.sh
+        ```
+
+    After the import process completes, you can manage the project using DDEV commands such as `ddev status` to check the environment status or `ddev launch` to start the project.
+
+
+2. **Opening the Codespace**
+
+    - Once your codespace is ready, you can open it directly in your browser or in VS Code for a more integrated development experience.
+
+3. **Starting the DDEV Project**
+
+    - Upon starting your codespace, open the Terminal within the IDE and execute the following command to start and launch the DDEV project:
+
+        ```bash
+        ddev launch
+        ```
+
+    This command initializes your development environment and launches the project, making it accessible for further development and testing.
 
 ### Import Project Dependencies and Database
 
@@ -80,7 +117,7 @@ Regardless of the chosen method, you should import project dependencies and the 
 - **Run the import script to update dependencies and install a recent backup of the production database:**
 
     ```bash
-    time bash import.sh
+    bash import.sh
     ```
 
     **Note:** The `import.sh` script updates dependencies and installs a recent backup from `aplcms-minus.sql.gz`. This process may take up to 20 minutes due to the size of the database but is necessary only occasionally to refresh your environment with the latest data.
@@ -93,8 +130,11 @@ If you encounter missing images during development, we've prepared a script to h
 
 ### Script Usage
 
-- Ensure you have `wget` installed on your system for downloading missing images.
-- Run the provided script to identify missing images and download them while preserving the directory structure. 
+- Run the provided script to identify missing images and download them while preserving the directory structure:
+
+    ```python3
+    python3 missing.py
+    ```
 
 **We're here to help!** If you need assistance setting up your development environment or have questions about the project, don't hesitate to reach out. Our goal is to ensure a welcoming and supportive environment for all contributors.
 
