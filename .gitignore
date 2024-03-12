@@ -1,3 +1,9 @@
+# Ignore macOS system files
+.DS_Store
+
+# Ignore .DS_Store in any subdirectory
+**/.DS_Store
+
 # General
 .editorconfig
 composer.lock
