@@ -1,65 +1,48 @@
 # APLCMS-Minus Project Setup
 
-Welcome to the APLCMS-Minus project! This guide will walk you through setting up your development environment, cloning the repository, and starting the project with DDEV. If you're new to any of these tools or encounter any bumps along the way, don't hesitate to reach out. We're here to make your setup process as smooth as possible.
+Welcome to the APLCMS-Minus project! This guide will help you set up your development environment, clone the repository, and start the project with DDEV, including the option of using GitHub Codespaces. We're here to assist you through the process.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following prerequisites installed on your machine:
+Ensure you have the following installed or accessible:
 
-- **Colima or Docker**: These tools allow you to containerize applications, ensuring consistency across development and production environments.
-    - Colima installation guide: [Colima GitHub](https://github.com/abiosoft/colima)
-    - Docker installation guide: [Docker Get Started](https://www.docker.com/get-started)
+- **GitHub Codespaces or Local Development Tools**: Have a GitHub account with Codespaces enabled for cloud-based development, or Docker/Colima for local development.
+    - [Colima Installation Guide](https://github.com/abiosoft/colima)
+    - [Docker Get Started Guide](https://www.docker.com/get-started)
 
-- **DDEV**: An open-source tool that simplifies the setup and management of PHP applications with Docker.
-    - DDEV installation guide: [DDEV Documentation](https://ddev.readthedocs.io/en/stable/)
+- **DDEV**: Simplifies PHP applications setup with Docker.
+    - [DDEV Documentation](https://ddev.readthedocs.io/en/stable/)
+
+- **Git LFS**: For handling large files such as `aplcms-minus.sql.gz`.
+    - [Git LFS Documentation](https://git-lfs.github.com/)
 
 ## Getting Started
 
-Follow these steps to clone the repository and start your project with DDEV:
+### Option 1: Local Setup with DDEV
 
-### 1. Clone the Repository
+1. Clone the repository: `git clone git@github.com:APL-Innovation-Lab/aplcms-minus.git`
+2. Enter the project directory: `cd aplcms-minus`
+3. Initialize Git LFS: `git lfs install` followed by `git lfs pull`
+4. Start DDEV: `ddev start`
 
-```bash
-git clone git@github.com:APL-Innovation-Lab/aplcms-minus.git
-```
+### Option 2: GitHub Codespaces Setup
 
-### 2. Enter the Project Directory
+GitHub Codespaces provides a powerful, cloud-based development environment. For the APLCMS-Minus project, start with setting up a new Codespace:
 
-Navigate to the project directory:
+- **New Codespace Setup**: Create a new Codespace from the Codespaces tab in the GitHub repository. The first step is to run `time bash import.sh` in the Terminal, which sets up your environment and imports the database, taking about 20-25 minutes. Afterwards, you can manage your project with `ddev` commands. For an enhanced development experience, it's recommended to open the Codespace in VS Code, but you can also work directly in a browser for convenience.
 
-```bash
-cd aplcms-minus
-```
+### Import Project Dependencies and Database
 
-### 3. Start DDEV
-
-Initialize the DDEV environment:
-
-```bash
-ddev start
-```
-
-### 4. Import Project Dependencies and Database
-
-Run the import script to update dependencies and install a recent backup of the production database:
-
-```bash
-time bash import.sh
-```
-
-**Note:** The `import.sh` script updates the dependencies listed in `composer.json` and then installs the recent backup from `aplcms-minus.sql.gz`. The import process may take a few minutes and performs better on machines with a minimum of 8GB memory.
-
-The installed backup is a recent snapshot from our production website at [library.austintexas.gov](https://library.austintexas.gov), with all personally identifiable information, such as email addresses, removed for privacy.
+Regardless of your setup choice, run `bash import.sh` to import project dependencies and the database, ensuring your environment is up to date.
 
 ## Missing Images Handler
 
-If you encounter missing images during development, we've prepared a script to help you identify and download these images from the production site. This ensures your local environment mirrors the live site as closely as possible.
+If you encounter missing images during development, run the provided script to identify and download them, preserving the directory structure.
 
-### Script Usage
+```python3
+python3 missing.py
+```
 
-- Ensure you have `wget` installed on your system to download missing images.
-- Run the provided script to identify missing images and download them while preserving the directory structure. 
-
-**We're here to help!** If you need assistance setting up your development environment or have questions about the project, don't hesitate to reach out. Our goal is to ensure a welcoming and supportive environment for all contributors.
+**Need Help?** If you need assistance with your development environment or have questions about the project, don't hesitate to reach out. Our aim is to create a supportive environment for all contributors.
 
 Thank you for contributing to the APLCMS-Minus project!

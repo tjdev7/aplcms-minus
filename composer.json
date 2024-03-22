@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
         "drupal/address": "^1.8",
         "drupal/advagg": "^4.0",
         "drupal/asset_injector": "^2",
@@ -130,10 +131,19 @@
             "drupal/core-composer-scaffold": true,
             "endroid/installer": true,
             "composer/installers": true,
-            "zodiacmedia/drupal-libraries-installer": true
+            "zodiacmedia/drupal-libraries-installer": true,
+            "cweagans/composer-patches": true
         }
     },
     "extra": {
+        "patches": {
+            "drupal/facets": {
+                "Add 14 as an option for Facets soft limit": "patches/custom_soft_limit.patch"
+            },
+            "drupal/core": {
+                "Allow iframe tag in Views fields": "patches/iframe_tag.patch"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "html"

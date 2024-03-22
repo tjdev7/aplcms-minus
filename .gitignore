@@ -1,7 +1,19 @@
+# Ignore macOS system files
+.DS_Store
+
+# Ignore .DS_Store in any subdirectory
+**/.DS_Store
+
 # General
 .editorconfig
 composer.lock
 vendor/
+
+html/library/.htaccess
+html/library/asset_injector/
+html/library/css/
+html/library/js/
+html/library/php/
 
 # Drupal-specific ignores
 html/.csslintrc
@@ -37,6 +49,7 @@ html/sites/default/files/php/
 html/sites/default/files/styles/
 html/sites/default/files/sync/
 
+html/themes/contrib/material_base/
 # Ignore sensitive files
 *.key
 *.cert
